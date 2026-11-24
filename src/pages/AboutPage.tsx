@@ -2,7 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { 
   Building2, Landmark, ShieldCheck, Target, Compass, 
-  Users, CheckCircle2, ArrowRight, MapPin, Scale, Award 
+  Users, CheckCircle2, ArrowRight, MapPin, Scale, Award,
+  Sparkles, Briefcase, TrendingUp
 } from 'lucide-react';
 import { SEO } from '../components/common/SEO';
 
@@ -19,88 +20,181 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenConsultation }) => {
         canonicalPath="/about"
       />
       
-      {/* 1. REDESIGNED HERO SECTION (Full-Bleed Deep Royal Navy with Map Background & Zero Navbar Overlap) */}
-      <section className="relative bg-[#2B1E6B] text-white overflow-hidden pt-36 sm:pt-40 lg:pt-44 pb-20 sm:pb-24">
+      {/* 1. DISTINCT ABOUT US HERO SECTION (Split 2-Column Institutional Architectural Layout) */}
+      <section className="relative bg-[#160E3D] text-white overflow-hidden pt-36 sm:pt-40 lg:pt-44 pb-16 sm:pb-20 lg:pb-24">
         
-        {/* Atmospheric Map Texture Layer */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-25">
-          <div
-            className="w-full h-full"
+        {/* Subtle Architectural Grid Pattern & Ambient Golden Glow */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          {/* Subtle Grid Accent */}
+          <div 
+            className="w-full h-full opacity-5"
             style={{
-              backgroundImage: 'url(/images/map_bg.jpg)',
-              backgroundPosition: 'center 40%',
-              backgroundSize: 'cover',
-              mixBlendMode: 'screen',
+              backgroundImage: 'radial-gradient(circle, #FFFFFF 1px, transparent 1px)',
+              backgroundSize: '32px 32px'
             }}
+          />
+          {/* Ambient Lighting */}
+          <div
+            className="absolute -top-32 -right-32 w-[600px] h-[600px] rounded-full blur-[120px] pointer-events-none"
+            style={{ background: 'radial-gradient(circle, rgba(255,176,32,0.18) 0%, rgba(43,30,107,0) 70%)' }}
+          />
+          <div
+            className="absolute -bottom-32 -left-32 w-[500px] h-[500px] rounded-full blur-[100px] pointer-events-none"
+            style={{ background: 'radial-gradient(circle, rgba(82,53,196,0.25) 0%, rgba(22,14,61,0) 70%)' }}
           />
         </div>
 
-        {/* Decorative Radial Lighting Glow */}
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            background:
-              'radial-gradient(ellipse 800px 500px at 50% 30%, rgba(255,176,32,0.12), transparent 70%), linear-gradient(180deg, rgba(43,30,107,0.92) 0%, rgba(43,30,107,0.85) 60%, #2B1E6B 100%)',
-          }}
-        />
-
         {/* Hero Content Container */}
-        <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10 space-y-6">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
           
-          {/* Pill Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 text-[#FFB020] text-xs font-bold border border-white/20 uppercase tracking-widest backdrop-blur-sm">
-            <Award className="w-3.5 h-3.5 text-[#FFB020]" />
-            <span>ABOUT REGISTIFY SERVICES</span>
-          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+            
+            {/* Left Column: Mission Narrative & Distinct Title (Col 7) */}
+            <div className="lg:col-span-7 space-y-6 text-left">
+              
+              {/* Institutional Pill Badge */}
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 text-[#FFB020] text-xs font-bold border border-white/20 uppercase tracking-widest backdrop-blur-sm">
+                <Sparkles className="w-3.5 h-3.5 text-[#FFB020]" />
+                <span>ABOUT REGISTIFY SERVICES • SINCE 2018</span>
+              </div>
 
-          {/* Majestic Uppercase Title */}
-          <h1 className="font-condensed font-normal text-4xl sm:text-6xl md:text-7xl uppercase text-white tracking-wide leading-tight drop-shadow-sm">
-            We Help Entrepreneurs<br className="hidden sm:inline" />
-            Establish, Register, Certify<br className="hidden sm:inline" />
-            And Grow
-          </h1>
+              {/* Distinct Headline Dedicated to Institutional Advisory */}
+              <h1 className="font-condensed font-bold text-4xl sm:text-5xl md:text-6xl lg:text-[62px] uppercase text-white tracking-wide leading-[1.08]">
+                Building Strong <span className="text-[#FFB020]">Business Foundations</span> For India’s Ambitious Founders
+              </h1>
 
-          {/* Subtitle */}
-          <p className="text-base sm:text-lg md:text-xl text-[#DCD6FB] max-w-3xl mx-auto leading-relaxed font-sans font-normal">
-            Registify Services is a modern Indian business consultancy and corporate advisory firm. We bring administrative corporate registrations, statutory certifications, compliance management, and institutional financing solutions under one dependable roof.
-          </p>
+              {/* Subtitle Editorial */}
+              <p className="text-base sm:text-lg text-[#DCD6FB] leading-relaxed font-sans font-normal max-w-2xl">
+                Headquartered in Gujarat and serving clients across 8+ Indian states, Registify Services is a multi-disciplinary corporate advisory firm. We bridge the gap between entrepreneurial ambition and procedural compliance—bringing company formation, statutory certifications, secretarial management, and growth capital facilitation under one dependable, transparent roof.
+              </p>
 
-          {/* CTA Buttons */}
-          <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <button
-              onClick={onOpenConsultation}
-              className="w-full sm:w-auto px-9 py-4 rounded-xl bg-[#FFB020] hover:bg-[#E59D10] text-[#1B1247] font-condensed font-bold text-lg uppercase tracking-wider transition-all duration-200 shadow-btn hover:scale-105 active:scale-95 flex items-center justify-center gap-2"
-            >
-              <span>Schedule Free Consultation</span>
-              <ArrowRight className="w-4 h-4" />
-            </button>
+              {/* Key Trust Checkmarks (2x2 Grid) */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 text-xs sm:text-sm font-semibold text-[#E9E4FF]">
+                <div className="flex items-center gap-2.5">
+                  <CheckCircle2 className="w-4 h-4 text-[#FFB020] flex-shrink-0" />
+                  <span>DPIIT & MCA Compliant Advisory</span>
+                </div>
+                <div className="flex items-center gap-2.5">
+                  <CheckCircle2 className="w-4 h-4 text-[#FFB020] flex-shrink-0" />
+                  <span>Zero Bureaucratic Friction</span>
+                </div>
+                <div className="flex items-center gap-2.5">
+                  <CheckCircle2 className="w-4 h-4 text-[#FFB020] flex-shrink-0" />
+                  <span>Transparent Milestone Timelines</span>
+                </div>
+                <div className="flex items-center gap-2.5">
+                  <CheckCircle2 className="w-4 h-4 text-[#FFB020] flex-shrink-0" />
+                  <span>Dedicated Advisory Desk</span>
+                </div>
+              </div>
 
-            <Link
-              to="/services"
-              className="w-full sm:w-auto px-9 py-4 rounded-xl bg-white/10 hover:bg-white/20 text-white font-condensed font-bold text-lg uppercase tracking-wider transition-all duration-200 border border-white/30 backdrop-blur-sm"
-            >
-              Explore Our Services
-            </Link>
+              {/* Action Buttons */}
+              <div className="pt-3 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+                <button
+                  type="button"
+                  onClick={onOpenConsultation}
+                  className="px-8 py-3.5 rounded-xl bg-[#FFB020] hover:bg-[#E59D10] text-[#1B1247] font-condensed font-bold text-lg uppercase tracking-wider transition-all duration-200 shadow-btn hover:scale-105 active:scale-95 flex items-center justify-center gap-2"
+                >
+                  <span>Schedule Free Consultation</span>
+                  <ArrowRight className="w-4 h-4" />
+                </button>
+
+                <Link
+                  to="/services"
+                  className="px-7 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-condensed font-bold text-lg uppercase tracking-wider transition-all duration-200 border border-white/25 backdrop-blur-sm text-center"
+                >
+                  Explore Services Directory
+                </Link>
+              </div>
+
+            </div>
+
+            {/* Right Column: Institutional Snapshot Showcase Card (Col 5) */}
+            <div className="lg:col-span-5">
+              <div className="relative rounded-3xl bg-[#211654]/85 border border-white/20 p-6 sm:p-8 shadow-2xl backdrop-blur-md space-y-6">
+                
+                {/* Emblem & Title */}
+                <div className="flex items-center gap-4 border-b border-white/10 pb-5">
+                  <div className="w-14 h-14 rounded-full bg-white flex items-center justify-center p-2 shadow-lg flex-shrink-0 border border-white/40">
+                    <img
+                      src="/images/registify-mark-transparent.png"
+                      alt="Registify Emblem"
+                      className="w-full h-full object-contain select-none"
+                    />
+                  </div>
+                  <div className="text-left">
+                    <span className="font-serif font-bold text-xl text-white block leading-tight">
+                      Registify Services
+                    </span>
+                    <span className="text-[11px] font-sans font-bold uppercase tracking-wider text-[#FFB020] block">
+                      Private Corporate Advisory
+                    </span>
+                    <span className="text-xs text-[#CFC6FF] block mt-0.5">
+                      Gujarat HQ • Serving Pan-India
+                    </span>
+                  </div>
+                </div>
+
+                {/* 3 Core Competency Pillars */}
+                <div className="space-y-3.5 text-left">
+                  <div className="flex items-start gap-3 p-3 rounded-xl bg-white/5 border border-white/10">
+                    <Building2 className="w-5 h-5 text-[#FFB020] flex-shrink-0 mt-0.5" />
+                    <div>
+                      <strong className="block text-xs font-bold text-white uppercase tracking-wider">Company Formation</strong>
+                      <p className="text-[11px] text-[#CFC6FF] leading-snug">Private Limited, LLP, OPC & Partnership firm setup.</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3 p-3 rounded-xl bg-white/5 border border-white/10">
+                    <Award className="w-5 h-5 text-[#FFB020] flex-shrink-0 mt-0.5" />
+                    <div>
+                      <strong className="block text-xs font-bold text-white uppercase tracking-wider">Statutory Certifications</strong>
+                      <p className="text-[11px] text-[#CFC6FF] leading-snug">ISO 9001, FSSAI, MSME Udyam & Trademark protection.</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3 p-3 rounded-xl bg-white/5 border border-white/10">
+                    <Landmark className="w-5 h-5 text-[#FFB020] flex-shrink-0 mt-0.5" />
+                    <div>
+                      <strong className="block text-xs font-bold text-white uppercase tracking-wider">Capital & Credit Facilitation</strong>
+                      <p className="text-[11px] text-[#CFC6FF] leading-snug">MSME, Machinery & Term Loan dossier management.</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Trust Highlight Banner */}
+                <div className="pt-2 border-t border-white/10 flex items-center justify-between text-xs text-[#E9E4FF]">
+                  <span className="inline-flex items-center gap-1.5 text-[#FFB020] font-bold">
+                    <ShieldCheck className="w-4 h-4" />
+                    <span>Govt. Recognized</span>
+                  </span>
+                  <span className="text-white/40">•</span>
+                  <span className="text-[#CFC6FF]">100% Procedural Assurance</span>
+                </div>
+
+              </div>
+            </div>
+
           </div>
 
           {/* Key Metric Highlights Strip */}
-          <div className="pt-8 sm:pt-12 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
-            <div className="p-4 rounded-2xl bg-white/5 border border-white/15 backdrop-blur-sm text-center">
+          <div className="mt-12 sm:mt-16 pt-10 border-t border-white/15 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+            <div className="p-4 sm:p-5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm text-center">
               <strong className="block font-condensed font-bold text-3xl sm:text-4xl text-[#FFB020]">6+</strong>
               <small className="block font-sans text-xs uppercase tracking-wider text-[#CFC6FF] mt-1 font-semibold">Years Experience</small>
             </div>
 
-            <div className="p-4 rounded-2xl bg-white/5 border border-white/15 backdrop-blur-sm text-center">
-              <strong className="block font-condensed font-bold text-3xl sm:text-4xl text-white">10k+</strong>
-              <small className="block font-sans text-xs uppercase tracking-wider text-[#CFC6FF] mt-1 font-semibold">Projects Delivered</small>
+            <div className="p-4 sm:p-5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm text-center">
+              <strong className="block font-condensed font-bold text-3xl sm:text-4xl text-white">10,000+</strong>
+              <small className="block font-sans text-xs uppercase tracking-wider text-[#CFC6FF] mt-1 font-semibold">Compliances Managed</small>
             </div>
 
-            <div className="p-4 rounded-2xl bg-white/5 border border-white/15 backdrop-blur-sm text-center">
-              <strong className="block font-condensed font-bold text-3xl sm:text-4xl text-[#FFB020]">30Cr+</strong>
+            <div className="p-4 sm:p-5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm text-center">
+              <strong className="block font-condensed font-bold text-3xl sm:text-4xl text-[#FFB020]">₹30Cr+</strong>
               <small className="block font-sans text-xs uppercase tracking-wider text-[#CFC6FF] mt-1 font-semibold">Funds Facilitated</small>
             </div>
 
-            <div className="p-4 rounded-2xl bg-white/5 border border-white/15 backdrop-blur-sm text-center">
+            <div className="p-4 sm:p-5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm text-center">
               <strong className="block font-condensed font-bold text-3xl sm:text-4xl text-white">8+</strong>
               <small className="block font-sans text-xs uppercase tracking-wider text-[#CFC6FF] mt-1 font-semibold">States Served</small>
             </div>
