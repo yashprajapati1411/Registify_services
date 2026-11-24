@@ -1,0 +1,135 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ink: #2B1E6B;
+  --deep: #1B1247;
+  --amb: #FFB020;
+  --lil: #F1EEFF;
+  --crm: #FFF9F1;
+  --cor: #FF6B5A;
+  --hf: 'Oswald', 'Open Sans', sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Open Sans', sans-serif;
+    color: #2C2850;
+    background-color: #FFFFFF;
+  }
+  
+  body {
+    overflow-x: hidden;
+    background-color: #FFFFFF;
+    color: #2C2850;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Oswald', 'Open Sans', sans-serif;
+    letter-spacing: 0.5px;
+  }
+}
+
+/* Animations for India Map & Interactive Presence */
+@keyframes flow {
+  to {
+    stroke-dashoffset: -20;
+  }
+}
+
+@keyframes pu {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 176, 32, 0.75);
+  }
+  70% {
+    box-shadow: 0 0 0 20px rgba(255, 176, 32, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 176, 32, 0);
+  }
+}
+
+@keyframes gl {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.45;
+  }
+  50% {
+    transform: scale(1.25);
+    opacity: 0.7;
+  }
+}
+
+@keyframes floatBob {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(1deg);
+  }
+}
+
+@keyframes floatBobReverse {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(8px) rotate(-1.5deg);
+  }
+}
+
+.anim-float {
+  animation: floatBob 4s ease-in-out infinite;
+}
+
+.anim-float-reverse {
+  animation: floatBobReverse 5s ease-in-out infinite;
+}
+
+.pin-pulse {
+  animation: pu 2s infinite;
+}
+
+.glow-beacon {
+  animation: gl 3s ease-in-out infinite;
+}
+
+.line-flow {
+  animation: flow 1.6s linear infinite;
+}
+
+.pop-out-spring {
+  transition: opacity 0.5s ease-out, transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FFF9F1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #CFC6FF;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #FFB020;
+}
